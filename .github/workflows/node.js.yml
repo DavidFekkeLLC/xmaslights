@@ -27,8 +27,8 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
+    - run: npm start
       env:
         IP_ADDRESS: 10.0.0.125
         USERTOKEN: ${{ secrets.USERTOKEN }}
-      run: echo "IP_ADDRESS $IP_ADDRESS"
-    - run: npm start
+    - run: echo "IP_ADDRESS $IP_ADDRESS"
