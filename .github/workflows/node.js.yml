@@ -19,6 +19,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -26,7 +27,9 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
-    - run: npm start
+    - name: Set environment variables
       env:
-        IP_ADDRESS: ${{ secrets.BRIDGE_IP_ADDRESS }}
+        IP_ADDRESS: 10.0.0.125
         USERTOKEN: ${{ secrets.USERTOKEN }}
+      run: echo "IP_ADDRESS $IP_ADDRESS"
+    - run: npm start
