@@ -27,7 +27,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
-    - name: Set environment variables
       env:
         IP_ADDRESS: 10.0.0.125
         USERTOKEN: ${{ secrets.USERTOKEN }}
