@@ -18,11 +18,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - shell: bash
-      env:
-        USERTOKEN: ${{ secrets.USERTOKEN }}
-      run: |
-        echo "$USERTOKEN"
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -31,5 +26,16 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
-    - run: npm start
+    - shell: bash
+      run: |
+        echo "$USERTOKEN"
+        pm2 stop xmaslights
+        pm2 delete xmaslights
+
+        rm -rf ~/Documents/projects/lights
+        mkdir ~/Documents/projects/lights
+        cp -r * ~/Documents/projects/lights
+
+        pm2 start ~/Documents/projects/lights/index.js --name xmaslights
+        pm2 save
     
