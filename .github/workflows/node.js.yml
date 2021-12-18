@@ -11,7 +11,10 @@ jobs:
   build:
 
     runs-on: self-hosted
-
+    env:
+      IP_ADDRESS: {{ secret.BRIDGE_IP_ADDRESS }}
+      USERTOKEN: {{ secret.USERTOKEN }}
+      
     strategy:
       matrix:
         node-version: [16.x]
