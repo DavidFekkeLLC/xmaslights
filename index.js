@@ -10,6 +10,8 @@ const endpoint = `http://${ip_address}/api/${user}/lights/1/state`;
 
 let toggle = true;
 
+console.log(`ip_address: ${ip_address}`);
+
 async function cycleXMASLights() {
     await axios.put(endpoint, {
         "on":true,
