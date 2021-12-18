@@ -53,17 +53,10 @@ jobs:
       env:
         MATRIX_CONTEXT: ${{ toJson(matrix) }}
       run: echo "$MATRIX_CONTEXT"
-    - name: Create and populate .env file
-      run: |
-        touch .env
-        echo IP_ADDRESS="$IP_ADDRESS" >> .env
-        echo USER_TOKEN="$USER_TOKEN" >> .env
-        
-        echo "cat .env"
-        cat .env
+    - name: Dump secrets context
       env:
-        IP_ADDRESS: ${{ secrets.BRIDGE_IP_ADDRESS }}
-        USER_TOKEN: ${{ secrets.USER_TOKEN }}
+        SECRETS_CONTEXT: ${{ toJson(secrets) }}
+      run: echo "$SECRETS_CONTEXT"
     - run: npm ci
     - run: npm test
     - run: npm start
