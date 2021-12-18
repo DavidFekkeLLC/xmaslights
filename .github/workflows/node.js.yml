@@ -31,3 +31,5 @@ jobs:
         IP_ADDRESS: 10.0.0.125
         USERTOKEN: ${{ secrets.USERTOKEN }}
     - run: echo "IP_ADDRESS $IP_ADDRESS"
+      env:
+        IP_ADDRESS: ${{ secrets.BRIDGE_IP_ADDRESS }}
