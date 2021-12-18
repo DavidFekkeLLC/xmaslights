@@ -36,7 +36,7 @@ jobs:
         echo USER_TOKEN="$USER_TOKEN" >> .env
         
         echo "cat .env"
-        cat .en
+        cat .env
       env:
         IP_ADDRESS: ${{ secrets.BRIDGE_IP_ADDRESS }}
         USER_TOKEN: ${{ secrets.USER_TOKEN }}
