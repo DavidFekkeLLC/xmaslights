@@ -24,9 +24,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      env:
-        IP_ADDRESS: ${{ secrets.BRIDGE_IP_ADDRESS }}
-        USERTOKEN: ${{ secrets.USERTOKEN }}
     - run: npm ci
     - run: npm test
     - run: npm start
+      env:
+        IP_ADDRESS: ${{ secrets.BRIDGE_IP_ADDRESS }}
+        USERTOKEN: ${{ secrets.USERTOKEN }}
