@@ -7,6 +7,8 @@
   "scripts": {
     "test": "echo \"All tests ran successful\" && exit 0",
     "start": "node index.js",
+    "green":"node setbulbstate.js",
+    "white": "node turnlightwhite.js",
     "off": "node turnoff.js"
   },
   "keywords": [],
