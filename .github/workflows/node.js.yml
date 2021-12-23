@@ -24,7 +24,7 @@ jobs:
     - shell: bash
       run: |
         pm2 stop xmaslights
-        # node ~/apps/xmaslights/turnoff.js
+
         pm2 delete xmaslights
 
         rm -rf ~/apps/xmaslights
