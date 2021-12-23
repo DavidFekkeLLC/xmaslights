@@ -24,13 +24,13 @@ jobs:
     - shell: bash
       run: |
         pm2 stop xmaslights
-        node ~/Documents/projects/lights/turnoff.js
+        # node ~/apps/xmaslights/turnoff.js
         pm2 delete xmaslights
 
-        rm -rf ~/Documents/projects/lights
-        mkdir ~/Documents/projects/lights
-        cp -r * ~/Documents/projects/lights
+        rm -rf ~/apps/xmaslights
+        mkdir ~/apps/xmaslights
+        cp -r * ~/apps/xmaslights
 
-        pm2 start ~/Documents/projects/lights/index.js --name xmaslights
+        pm2 start ~/apps/xmaslights/index.js --name xmaslights
         pm2 save
     
